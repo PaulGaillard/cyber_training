@@ -12,9 +12,6 @@ Header( 'Expires: Tue, 23 Jun 2009 12:00:00 GMT' );     // Date in the past
 	<head>
 
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta
-  		http-equiv="Content-Security-Policy"
-  		content="default-src 'self'" />
 		<title>Example - XSS reflected</title>
 
 	</head>
