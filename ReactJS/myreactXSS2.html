@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+  </head>
+  <title>React JS XSS</title>
+  <body>
+
+    <span id="app"></span>
+
+    <script type="text/babel">
+		var urlParams = new URLSearchParams(window.location.search);
+		const articleName = urlParams.get('article_name');
+
+		class AboutUserComponent extends React.Component {
+		  render() {
+			return (
+			  <div dangerouslySetInnerHTML={{"__html": articleName}} />
+			);
+		  }
+		}
+
+		ReactDOM.render(<AboutUserComponent />, document.querySelector("#app"))
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,18 @@
+html 
+  head 
+    title="NodeJS Command Injection"
+
+  body 
+    h1 Liste des fichier du dossier et sous dossiers NodeJS
+    ul
+      each file in files
+        li #{file}
+
+    h1="Nom du fichier :"  
+
+    form(action="/" method="GET") 
+      input(type="text" name="filename" value="") 
+      button(type="submit") Submit
+
+    code 
+      pre #{output}
