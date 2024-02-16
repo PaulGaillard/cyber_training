@@ -1,7 +1,8 @@
 <?php
 
 $url="/example/authbypass2.php";
-if($url === $_SERVER['REQUEST_URI']){
+$requested_uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+if($url === $requested_uri){
 	http_response_code(403);
 	echo "ERROR 403 - UNAUTHORIZED";
 	exit();
