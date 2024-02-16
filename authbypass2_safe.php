@@ -1,9 +1,10 @@
 <?php
 
 $url="/example/authbypass2.php";
+$requested_uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $user="none";
 //deny-by-default strategy !
-if($url === $_SERVER['REQUEST_URI'] and $user === "superadmin"){
+if($url === $requested_uri and $user === "superadmin"){
 	echo("Hello there");
 } else {
 	http_response_code(403);
